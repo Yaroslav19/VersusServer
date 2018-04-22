@@ -1,52 +1,23 @@
 package com.versus.server.entity;
 
-import javax.persistence.*;
-import java.util.List;
+import lombok.Data;
 
-import static javax.persistence.GenerationType.IDENTITY;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "dept")
+@Data
 public class Department {
-    private Long deptId;
-    private String deptName;
-    private List<User> users;
-
-    public Department() {
-    }
-
-    public Department(Long deptId, String deptName, List<User> users) {
-        this.deptId = deptId;
-        this.deptName = deptName;
-        this.users = users;
-    }
-
     @Id
-    @GeneratedValue(strategy = IDENTITY)
-    @Column(name = "dept_id", unique = true, nullable = false)
-    public Long getDeptId() {
-        return deptId;
-    }
-
-    public void setDeptId(Long deptId) {
-        this.deptId = deptId;
-    }
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "dept_id")
+    private Long deptId;
 
     @Column(name = "dept_name", nullable = false)
-    public String getDeptName() {
-        return deptName;
-    }
+    private String deptName;
 
-    public void setDeptName(String deptName) {
-        this.deptName = deptName;
-    }
-
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "department")
-    public List<User> getUsers() {
-        return users;
-    }
-
-    public void setUsers(List<User> users) {
-        this.users = users;
-    }
+    @OneToMany(mappedBy = "department", fetch = FetchType.LAZY)
+    private Set<User> users = new HashSet<>();
 }
