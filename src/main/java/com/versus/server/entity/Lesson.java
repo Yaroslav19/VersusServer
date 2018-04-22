@@ -6,9 +6,9 @@ import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
+@Data
 @Entity
 @Table(name = "lesson")
-@Data
 public class Lesson {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

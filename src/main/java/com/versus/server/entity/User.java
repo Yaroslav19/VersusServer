@@ -7,9 +7,9 @@ import java.sql.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+@Data
 @Entity
 @Table(name = "usr")
-@Data
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
