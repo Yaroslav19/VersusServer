@@ -1,4 +1,4 @@
-package com.versus.server.entity;
+package com.versus.server.dao.entity;
 
 import lombok.Data;
 

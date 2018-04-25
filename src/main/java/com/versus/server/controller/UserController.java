@@ -1,6 +1,6 @@
 package com.versus.server.controller;
 
-import com.versus.server.entity.User;
+import com.versus.server.dao.entity.User;
 import com.versus.server.service.impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

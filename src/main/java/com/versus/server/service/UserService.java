@@ -1,9 +1,8 @@
 package com.versus.server.service;
 
-import com.versus.server.entity.User;
+import com.versus.server.dao.entity.User;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface UserService {
     List<User> getAll();

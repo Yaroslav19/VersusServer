@@ -1,7 +1,7 @@
 package com.versus.server.service.impl;
 
-import com.versus.server.entity.User;
-import com.versus.server.repository.UserRepository;
+import com.versus.server.dao.entity.User;
+import com.versus.server.dao.repository.UserRepository;
 import com.versus.server.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
