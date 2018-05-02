@@ -15,7 +15,7 @@ public class Department {
     @Column(name = "dept_id")
     private Long deptId;
 
-    @Column(name = "dept_name", nullable = false)
+    @Column(name = "dept_name")
     private String deptName;
 
     @OneToMany(mappedBy = "department", fetch = FetchType.LAZY)

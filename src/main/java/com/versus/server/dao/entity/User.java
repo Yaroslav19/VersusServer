@@ -3,6 +3,7 @@ package com.versus.server.dao.entity;
 import lombok.Data;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.sql.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -19,6 +20,7 @@ public class User {
     @Column(name = "fio", nullable = false)
     private String fio;
 
+    @Size(min = 5, max = 60)
     @Column(name = "login", nullable = false)
     private String login;
 
@@ -28,9 +30,9 @@ public class User {
     @Column(name = "birthday")
     private Date dayOfBirth;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "dept_id", nullable = false)
-    private Department department;
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "dept_id")
+    private Department department = new Department();
 
     @ManyToMany(cascade = {CascadeType.ALL})
     @JoinTable(

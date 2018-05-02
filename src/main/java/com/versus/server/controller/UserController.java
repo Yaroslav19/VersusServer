@@ -24,8 +24,8 @@ public class UserController {
     }
 
     @PostMapping()
-    public User saveUser(@RequestBody User user) {
-        return userService.save(user);
+    public void saveUser(@RequestBody User user) {
+        userService.save(user);
     }
 
     @DeleteMapping(value = "/{id}")
