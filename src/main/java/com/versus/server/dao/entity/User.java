@@ -1,14 +1,13 @@
 package com.versus.server.dao.entity;
 
-import lombok.Data;
-
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.sql.Date;
 import java.util.HashSet;
 import java.util.Set;
 
-@Data
+@lombok.Getter
+@lombok.Setter
 @Entity
 @Table(name = "usr")
 public class User {
@@ -34,7 +33,7 @@ public class User {
     @JoinColumn(name = "dept_id")
     private Department department = new Department();
 
-    @ManyToMany(cascade = {CascadeType.ALL})
+    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
     @JoinTable(
             name = "user_role",
             joinColumns = {@JoinColumn(name = "user_id")},
@@ -42,7 +41,7 @@ public class User {
     )
     private Set<Role> roles = new HashSet<>();
 
-    @ManyToMany(cascade = {CascadeType.ALL})
+    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
     @JoinTable(
             name = "user_lesson",
             joinColumns = {@JoinColumn(name = "user_id")},
